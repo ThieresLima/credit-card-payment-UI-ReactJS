@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
+
 export const Container = styled.div``;
 
 export const CardDataContainer = styled.form`
+  display: flex;
   background-color: #dfdaea;
   height: 100vh;
 `;
 
 export const CardData = styled.div`
   width: 620px;
-  padding: 38px
+  padding: 48px
 `;
 
 export const InputGroup = styled.div`
@@ -34,10 +36,11 @@ export const Input = styled.input`
   color: #514f54;
   font-weight: bold;
   text-transform: uppercase;
-  padding-bottom: 8px;
+  padding-bottom: ${({typing}) => typing ? '14px': '8px'};
   border: none;
   outline: none;
-  border-bottom: 2px #9466FF solid;
+  border-bottom: 2px  solid;
+  border-color: ${({typing}) => typing ? '#6ed387 ': '#9466FF'};
 `;
 
 export const InputContainerFlex = styled.div`
@@ -74,6 +77,11 @@ export const PaymentButton = styled.div`
   padding: 14px; 
   border-radius: 4px;
   margin-left: 8px;
+  cursor: pointer;
+
+  :hover {
+    background-color: #6ed387;
+  }
 `;
 
 export const PaymentText = styled.p`
@@ -83,4 +91,12 @@ export const PaymentText = styled.p`
   text-align: center;
   text-transform: uppercase;
   font-weight: bold;
+`;
+
+export const CreditCard = styled.div`
+  display: flex;
+  width: 600px;
+  height: 500px;
+  align-items: center;
+  justify-content: center;
 `;

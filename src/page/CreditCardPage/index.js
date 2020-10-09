@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import Cards from 'react-credit-cards';
+import 'react-credit-cards/es/styles-compiled.css';
+
 import { 
   Container,
   CardDataContainer,
@@ -10,12 +14,19 @@ import {
   InputFlex,
   Select,
   PaymentButton,
-  PaymentText
+  PaymentText,
+  CreditCard
 } from './styles';
 
 import Header from '../../Components/Header';
 
 export default function CreditCardPage() {
+  const [cvc, setCvc] = useState('');
+  const [expiry, setExpiry] = useState('');
+  const [focus, setFocus] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
+
   return (
     <Container>
       <Header />
@@ -24,23 +35,47 @@ export default function CreditCardPage() {
         <CardData>
           <InputGroup>
             <Text>Número do cartão</Text>
-            <Input type="text" />
+            <Input 
+              typing={number}
+              type="text"
+              name="number" 
+              onChange={e => setNumber(e.target.value)} 
+              onFocus={e => setFocus(e.target.name)}  
+            />
           </InputGroup>
 
           <InputGroup>
             <Text>Nome impresso no cartão</Text>
-            <Input type="text" />
+            <Input 
+              typing={name}
+              type="text" 
+              name="name"
+              onChange={e => setName(e.target.value)}
+              onFocus={e => setFocus(e.target.name)}   
+            />
           </InputGroup>
 
           <InputContainerFlex>
             <InputFlex>
               <Text>Data de validade</Text>
-              <Input type="text"/>
+              <Input 
+                typing={expiry}
+                type="text" 
+                name="expiry"
+                onChange={e => setExpiry(e.target.value)}
+                onFocus={e => setFocus(e.target.name)} 
+              />
             </InputFlex>
             
             <InputFlex>
               <Text>Código de segurança</Text>
-              <Input type="number" />
+              <Input 
+                typing={cvc}
+                type="text" 
+                name="cvc"
+                onChange={e => setCvc(e.target.value)} 
+                onFocus={e => setFocus(e.target.name)}  
+              />
             </InputFlex>          
           </InputContainerFlex>
 
@@ -56,11 +91,20 @@ export default function CreditCardPage() {
             </Select>
           </InputGroup>
 
-          <PaymentButton>
+          <PaymentButton onClick={() => alert("Pagamento efetuado com sucesso")}>
             <PaymentText>Efetuar pagamento</PaymentText>
           </PaymentButton>
-
         </CardData>
+
+        <CreditCard>
+          <Cards
+            cvc={cvc}
+            expiry={expiry}
+            focused={focus}
+            name={name}
+            number={number}
+          />
+        </CreditCard>
 
       </CardDataContainer>
     </Container>
