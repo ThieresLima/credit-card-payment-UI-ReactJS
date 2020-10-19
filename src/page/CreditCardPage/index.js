@@ -34,7 +34,7 @@ export default function CreditCardPage() {
 
         <CardData>
           <InputGroup>
-            <Text>Número do cartão</Text>
+            <Text typing={number}>Número do cartão</Text>
             <Input 
               typing={number}
               type="text"
@@ -45,7 +45,7 @@ export default function CreditCardPage() {
           </InputGroup>
 
           <InputGroup>
-            <Text>Nome impresso no cartão</Text>
+            <Text typing={name}>Nome impresso no cartão</Text>
             <Input 
               typing={name}
               type="text" 
@@ -57,7 +57,7 @@ export default function CreditCardPage() {
 
           <InputContainerFlex>
             <InputFlex>
-              <Text>Data de validade</Text>
+              <Text typing={expiry}>Data de validade</Text>
               <Input 
                 typing={expiry}
                 type="text" 
@@ -68,7 +68,7 @@ export default function CreditCardPage() {
             </InputFlex>
             
             <InputFlex>
-              <Text>Código de segurança</Text>
+              <Text typing={cvc}>Código de segurança</Text>
               <Input 
                 typing={cvc}
                 type="text" 
@@ -81,7 +81,7 @@ export default function CreditCardPage() {
 
           <InputGroup>
             <Text>Parcelas</Text>
-            <Select>
+            <Select name="name" onFocus={e => setFocus(e.target.name)}>
               <option value="" hidden>
               Escolha a forma de pagamento
               </option>
