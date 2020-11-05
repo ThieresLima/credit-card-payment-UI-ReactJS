@@ -1,5 +1,6 @@
 # Página de pagamento com cartão de crédito
-![Captura de tela de 2020-10-19 18-20-48](https://user-images.githubusercontent.com/54781646/98292667-d470a780-1f8b-11eb-8f83-8bfac2b24de7.png)
+![credit-edit](https://user-images.githubusercontent.com/54781646/98293153-9cb62f80-1f8c-11eb-9731-57588b73dbb8.png)
+
 
 
 
