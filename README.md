@@ -2,7 +2,7 @@
 Projeto feito utilizando ReactJS
 
 ## Bibliotecas
-styled-somponents & react-credit-cards
+styled-components & react-credit-cards
 
 ![credit-edit](https://user-images.githubusercontent.com/54781646/98293153-9cb62f80-1f8c-11eb-9731-57588b73dbb8.png)
 
