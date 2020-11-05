@@ -1,3 +1,8 @@
+# Página de pagamento com cartão de crédito
+![Captura de tela de 2020-10-19 18-20-48](https://user-images.githubusercontent.com/54781646/98292667-d470a780-1f8b-11eb-8f83-8bfac2b24de7.png)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
