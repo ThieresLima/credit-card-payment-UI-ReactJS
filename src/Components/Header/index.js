@@ -1,15 +1,15 @@
 import React from 'react';
-import { Container, HeaderContainer, Text } from './styles';
+import { Container } from './styles';
 import { FaDollarSign, FaCreditCard } from 'react-icons/fa';
 
-export default function Header() {
+export default function Header({ text }) {
   return (
     <Container>
-      <HeaderContainer>
+      <div>
         <FaDollarSign color="#FFF" size={36} />
-        <Text>Pagar com cartão de crédito</Text>
+        <p>{text}</p>
         <FaCreditCard color="#FFF" size={36} />
-      </HeaderContainer>
+      </div>
     </Container>
   );
 };

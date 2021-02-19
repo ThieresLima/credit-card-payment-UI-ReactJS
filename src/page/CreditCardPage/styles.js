@@ -1,53 +1,55 @@
 import styled from 'styled-components';
 
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  > div {
+    display: flex;
+    background-color: #FFF;
+    height: 100vh;
 
-export const CardDataContainer = styled.form`
+    form {
+      width: 620px;
+      padding: 48px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 32px;
+        padding: 10px;
+
+        span {
+          font-family: sans-serif;
+          font-size: 16px;
+          color: ${({isFocused}) => isFocused ? '#4BA580': '#848181'};
+          margin-bottom: 8px;
+        }
+
+        input {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          color: #848181;
+          font-weight: bold;
+          text-transform: uppercase;
+          padding-bottom: ${({isFocused}) => isFocused ? '14px': '8px'};
+          border: none;
+          outline: none;
+          border-bottom: 3px  solid;
+          border-color: ${({isFocused}) => isFocused ? '#4BA580': '#848181'};
+        }
+      }
+    }
+  }
+`;
+
+export const ContainerFlex = styled.section`
+  width: 100%;
   display: flex;
-  background-color: #FFF;
-  height: 100vh;
-`;
 
-export const CardData = styled.div`
-  width: 620px;
-  padding: 48px
-`;
-
-export const InputGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 32px;
-  padding: 10px;
-`;
-
-export const Text = styled.span`
-  font-family: sans-serif;
-  font-size: 16px;
-  color: ${({typing}) => typing ? '#4BA580': '#848181'};
-  margin-bottom: 8px;
-`;
-
-export const Input = styled.input`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #848181;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding-bottom: ${({typing}) => typing ? '14px': '8px'};
-  border: none;
-  outline: none;
-  border-bottom: 3px  solid;
-  border-color: ${({typing}) => typing ? '#4BA580': '#848181'};
-`;
-
-export const InputContainerFlex = styled.div`
-  display: flex;
-`;
-
-export const InputFlex = styled.div`
-  margin-bottom: 32px;
-  padding: 10px;
+  div {
+    width: 50%;
+    margin-bottom: 32px;
+    padding: 10px;
+  }
 `;
 
 export const Select = styled.select`
@@ -81,15 +83,15 @@ export const PaymentButton = styled.div`
   :hover {
     background-color: #6991E6;
   }
-`;
 
-export const PaymentText = styled.p`
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #FFF;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
 `;
 
 export const CreditCard = styled.div`
