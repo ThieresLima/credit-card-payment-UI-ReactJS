@@ -1,21 +1,21 @@
 # Página de pagamento com cartão de crédito
-Projeto feito utilizando ReactJS
+Projeto criado com [Create React App](https://github.com/facebook/create-react-app).
 
-## Bibliotecas
-styled-components & react-credit-cards
+**Bibliotecas:**
+- [react-credit-cards](https://github.com/amarofashion/react-credit-cards)
+- [styled-components](https://github.com/styled-components)
 
 ![credit-edit](https://user-images.githubusercontent.com/54781646/98293153-9cb62f80-1f8c-11eb-9731-57588b73dbb8.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Getting started
 
-## Available Scripts
+```sh
+  $ git clone https://github.com/thiereslima/credit-card-payment-UI-ReactJS.git
+```
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```sh
+  $ cd credit-card-payment-UI-ReactJS && yarn install
+```
+```sh
+  $ yarn start
+```
