@@ -1,36 +1,31 @@
 import React, { useState, useCallback } from 'react';
 
-import Input from '../../Components/Input';
-
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 
+import Header from '../../Components/Header';
+
 import { 
   Container,
+  Text,
+  Input,
   ContainerFlex,
   Select,
-  PaymentButton,
   CreditCard
 } from './styles';
-
-import Header from '../../Components/Header';
 
 export default function CreditCardPage() {
   const [cvc, setCvc] = useState('');
   const [expiry, setExpiry] = useState('');
+  const [focus, setFocus] = useState('');
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const [focus, setFocus] = useState('');
 
-  // const [isFocused, setIsFocused] = useState(false);
-
-  const handleInputFocus = useCallback((e) => {
-    // setIsFocused(true);
-    setFocus(e.target.name);
+  const handleInputFocus = useCallback((value) => {
+    setFocus(value);
   }, []);
 
   const handleInputBlur = useCallback(() => {
-    // setIsFocused(false);
     setFocus('');
   }, []);
 
@@ -38,51 +33,63 @@ export default function CreditCardPage() {
     <>
       <Header text="Pagar com cartão de crédito" />
       <Container>
-        <div>
-          <form>
-              <Input
-                label="Número do cartão" 
-                type="text"
+        <form>
+          <div>
+            <div>
+              <Text typing={number}>Número do cartão</Text>
+              <Input 
+                typing={number}
+                type="number"
                 name="number" 
                 onChange={e => setNumber(e.target.value)} 
-                onFocus={e => handleInputFocus(e)} 
-                onBlur={handleInputBlur}
-              />      
-
-              <Input
-                label="Nome impresso no cartão" 
-                type="text" 
-                name="name"
-                onChange={e => setName(e.target.value)}   
-                onFocus={e => handleInputFocus(e)}
+                onFocus={e => handleInputFocus(e.target.name)} 
                 onBlur={handleInputBlur}
               />
+            </div>
+
+            <div>
+              <Text typing={name}>Nome impresso no cartão</Text>
+              <Input 
+                typing={name}
+                type="text" 
+                name="name"
+                onChange={e => setName(e.target.value)}
+                onFocus={e => handleInputFocus(e.target.name)} 
+                onBlur={handleInputBlur}   
+              />
+            </div>
 
             <ContainerFlex>
-                <Input
-                  label="Data de validade" 
+              <div>
+                <Text typing={expiry}>Data de validade</Text>
+                <Input 
+                  typing={expiry}
                   type="text" 
                   name="expiry"
                   onChange={e => setExpiry(e.target.value)}
-                  onFocus={e => handleInputFocus(e)}
+                  onFocus={e => handleInputFocus(e.target.name)} 
                   onBlur={handleInputBlur}
                 />
+              </div>
               
-                <Input
-                  label="Código de segurança"                
+              <div>
+                <Text typing={cvc}>Código de segurança</Text>
+                <Input 
+                  typing={cvc}
                   type="text" 
                   name="cvc"
-                  onChange={e => setCvc(e.target.value)}
-                  onFocus={e => handleInputFocus(e)} 
-                  onBlur={handleInputBlur}
-                />       
+                  onChange={e => setCvc(e.target.value)} 
+                  onFocus={e => handleInputFocus(e.target.name)} 
+                  onBlur={handleInputBlur} 
+                />
+              </div>          
             </ContainerFlex>
 
             <div>
-              <span>Parcelas</span>
+              <Text>Parcelas</Text>
               <Select 
-                name="name" 
-                onFocus={e => handleInputFocus(e)} 
+                name="name"
+                onFocus={e => handleInputFocus(e.target.name)} 
                 onBlur={handleInputBlur}
               >
                 <option value="" hidden>
@@ -94,10 +101,11 @@ export default function CreditCardPage() {
               </Select>
             </div>
 
-            <PaymentButton onClick={() => alert("Pagamento efetuado com sucesso")}>
-              <p>Efetuar pagamento</p>
-            </PaymentButton>
-          </form>
+            <button onClick={() => alert("Pagamento efetuado com sucesso")}>
+              <span>Efetuar pagamento</span>
+            </button>
+          </div>
+        </form>
 
           <CreditCard>
             <Cards
@@ -108,8 +116,6 @@ export default function CreditCardPage() {
               number={number}
             />
           </CreditCard>
-
-        </div>
       </Container>
     </>
   );
